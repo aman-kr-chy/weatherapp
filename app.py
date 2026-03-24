@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 import requests
 import sqlite3
 from datetime import datetime
+import os
 
 app = Flask(__name__)
 
@@ -71,4 +72,4 @@ def history():
  
 if __name__ == "__main__":
     init_db()
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
